@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://r1ivofg2l3gx"]
+
+[ext_resource type="Script" path="res://scenes/energy_cell/energy_cell.gd" id="1_isbyj"]
+
+[node name="EnergyCell" type="TextureRect"]
+script = ExtResource("1_isbyj")

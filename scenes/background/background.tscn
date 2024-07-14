@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp6vopq5oe81n"]
+
+[ext_resource type="Texture2D" uid="uid://ous2xpwf2u84" path="res://images/Blue Nebula 5 - 1024x1024.png" id="1_4pkxb"]
+[ext_resource type="Texture2D" uid="uid://codyjaqpopd4r" path="res://images/Starfield 7 - 1024x1024.png" id="2_v7v08"]
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_4pkxb")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("2_v7v08")
+centered = false

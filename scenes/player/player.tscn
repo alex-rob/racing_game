@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://2hy25ylt8cyc"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_0d7bv"]
+[ext_resource type="Texture2D" uid="uid://2fybc2sr12dr" path="res://images/Spaceship.png" id="2_8tn5p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7x7sk"]
+radius = 13.0
+height = 48.0
+
+[node name="Player" type="Area2D" node_paths=PackedStringArray("acceleration_timer")]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_0d7bv")
+starting_speed = 5.0
+acceleration = 2.5
+acceleration_timer = NodePath("AccelerationTimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8tn5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7x7sk")
+
+[node name="AccelerationTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="AccelerationTimer" to="." method="_on_acceleration_timer_timeout"]
