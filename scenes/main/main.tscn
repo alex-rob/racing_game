@@ -11,8 +11,13 @@ script = ExtResource("1_ldqhn")
 [node name="Background" parent="." instance=ExtResource("2_0h02r")]
 
 [node name="Player" parent="." instance=ExtResource("3_tf2lo")]
+scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -250)
 
-[node name="Hud" parent="Player/Camera2D" instance=ExtResource("4_8xone")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("4_8xone")]
+
+[connection signal="update_energy" from="Player" to="CanvasLayer/Hud" method="draw_energy"]
